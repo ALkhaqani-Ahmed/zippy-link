@@ -1,0 +1,42 @@
+{
+  "npmScope": "@zippy-link",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "typecheck"]
+      }
+    }
+  },
+
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/dist"],
+      "cache": true
+    },
+    "dev": {
+      "dependsOn": ["^build"]
+    },
+    "preview": {
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "cache": true
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "cache": true
+    },
+    "format": {
+      "dependsOn": ["^format"],
+      "cache": true
+    }
+  },
+
+  "defaultBase": "main",
+  "plugins": []
+}

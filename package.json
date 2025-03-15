@@ -1,0 +1,38 @@
+{
+  "name": "@zippy-link/root",
+  "version": "1.0.0",
+  "description": "Url Shortener, a simple web app with AWS infrastructure | Clean Architecture | monorepo",
+  "keywords": [
+    "monorepo",
+    "nodejs",
+    "expressjs",
+    "cloudfront",
+    "lambda",
+    "s3 bucket",
+    "dynamoDB",
+    "aws"
+  ],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "homepage": "https://github.com/ai-eryany/url-shortener-monorepo#readme",
+  "bugs": {
+    "url": "https://github.com/ai-eryany/url-shortener-monorepo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-eryany/url-shortener-monorepo.git"
+  },
+  "license": "MIT",
+  "author": "Panda",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "nx": "^20.4.2",
+    "prettier": "^3.4.2",
+    "sass-embedded": "^1.85.1"
+  }
+}
