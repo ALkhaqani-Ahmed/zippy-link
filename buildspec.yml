@@ -15,6 +15,7 @@ phases:
       - cd apps/api
       - ls -la
       - sudo chown -R $(whoami) ~/.npm
+      - echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> ~/.npmrc
       - npm install --verbose
       - cd ../web
       - npm install --verbose
