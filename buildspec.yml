@@ -14,14 +14,19 @@ phases:
       # Check if the directory exists
       - cd apps/api
       - ls -la
-      - cd ../web && npm install
+      - npm install
+      - cd ../web
+      - npm install
   build:
     commands:
-      - cd ../api && npm run build
-      - cd ../web && npm run build
+      - cd ../api 
+      - npm run build
+      - cd ../web 
+      - npm run build
   post_build:
     commands:
-      - cd ../../ && aws s3 sync apps/web/dist/ s3://artifacts-zippy-link --delete
+      - cd ../../ 
+      - aws s3 sync apps/web/dist/ s3://artifacts-zippy-link --delete
       - zip -r backend.zip apps/api/dist/*
 artifacts:
   files:
