@@ -7,16 +7,16 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - cd backend && npm install
-      - cd ../frontend && npm install
+      - cd apps/api && npm install
+      - cd ../web && npm install
   build:
     commands:
-      - cd frontend && npm run build
-      - cd ../backend && npm run build
+      - cd apps/api && npm run build
+      - cd ../web && npm run build
   post_build:
     commands:
-      - aws s3 sync frontend/dist/ s3://zippy-link --delete
-      - zip -r backend.zip backend/*
+      - aws s3 sync apps/web/dist/ s3://zippy-link --delete
+      - zip -r backend.zip apps/api/dist/*
 artifacts:
   files:
     - backend.zip
