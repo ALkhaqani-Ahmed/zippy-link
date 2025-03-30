@@ -14,9 +14,9 @@ phases:
       # Check if the directory exists
       - cd apps/api
       - ls -la
-      - npm install
+      - npm install --verbose
       - cd ../web
-      - npm install
+      - npm install --verbose
   build:
     commands:
       - cd ../api 
