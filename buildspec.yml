@@ -1,0 +1,22 @@
+version: 0.2
+env:
+  variables:
+    NODE_ENV: production
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - cd backend && npm install
+      - cd ../frontend && npm install
+  build:
+    commands:
+      - cd frontend && npm run build
+      - cd ../backend && npm run build
+  post_build:
+    commands:
+      - aws s3 sync frontend/dist/ s3://zippy-link --delete
+      - zip -r backend.zip backend/*
+artifacts:
+  files:
+    - backend.zip
