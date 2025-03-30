@@ -7,6 +7,12 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
+      # Clean npm cache and verify Node.js/npm versions
+      - npm cache clean --force
+      - node -v
+      - npm -v
+      # Check if the directory exists
+      - ls -la apps/api
       - cd apps/api && npm install # Use `npm ci` instead of `npm install` for reproducibility
       - cd ../web && npm install
   build:
