@@ -7,8 +7,8 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - cd apps/api && npm install
-      - cd ../web && npm install
+      - cd apps/api && npm ci # Use `npm ci` instead of `npm install` for reproducibility
+      - cd ../web && npm ci
   build:
     commands:
       - cd apps/api && npm run build
