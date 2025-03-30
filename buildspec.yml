@@ -7,16 +7,27 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - cd backend && npm install
-      - cd ../frontend && npm install
+      # Clean npm cache and verify Node.js/npm versions
+      - npm cache clean --force
+      - node -v
+      - npm -v
+      # Check if the directory exists
+      - cd apps/api
+      - ls -la
+      - npm install
+      - cd ../web
+      - npm install
   build:
     commands:
-      - cd frontend && npm run build
-      - cd ../backend && npm run build
+      - cd ../api 
+      - npm run build
+      - cd ../web 
+      - npm run build
   post_build:
     commands:
-      - aws s3 sync frontend/dist/ s3://zippy-link --delete
-      - zip -r backend.zip backend/*
+      - cd ../../ 
+      - aws s3 sync apps/web/dist/ s3://artifacts-zippy-link --delete
+      - zip -r backend.zip apps/api/dist/*
 artifacts:
   files:
     - backend.zip

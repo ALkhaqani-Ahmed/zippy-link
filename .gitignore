@@ -7,6 +7,10 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+<<<<<<< HEAD
+=======
+# For linux builds purposes
+>>>>>>> b976280545e6a906560acbfd0a773ef15d2557f6
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
