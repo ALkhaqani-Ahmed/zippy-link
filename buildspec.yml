@@ -12,8 +12,8 @@ phases:
       - node -v
       - npm -v
       # Check if the directory exists
-      - ls -la apps/api
-      - cd apps/api && npm install # Use `npm ci` instead of `npm install` for reproducibility
+      - cd apps/api
+      - ls -la
       - cd ../web && npm install
   build:
     commands:
